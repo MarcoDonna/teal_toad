@@ -51,7 +51,7 @@ RSpec.describe TealToad::Tensor do
       let(:misshaped_array) { [[[1, 2], [1, 2]], [[3, 4], [3, 4, 5]]] }
 
       it "fails if the array cannot be converted to a Tensor" do
-        expect { described_class.from misshaped_array }.to raise_error(DimensionMismatch)
+        expect { described_class.from misshaped_array }.to raise_error(TealToad::DimensionMismatch)
       end
     end
   end
@@ -81,7 +81,7 @@ RSpec.describe TealToad::Tensor do
       let(:misshaped_array) { [[[1, 2], [1, 2]], [[3, 4], [3, 4, 5]]] }
 
       it "raises an error when the array has no defined shape" do
-        expect { described_class.shape_of misshaped_array }.to raise_error(DimensionMismatch)
+        expect { described_class.shape_of misshaped_array }.to raise_error(TealToad::DimensionMismatch)
       end
     end
 
