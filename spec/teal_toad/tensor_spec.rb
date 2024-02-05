@@ -84,6 +84,12 @@ RSpec.describe TealToad::Tensor do
         expect { described_class.shape_of misshaped_array }.to raise_error(DimensionMismatch)
       end
     end
+
+    context "when the item passed cannot be converted to a Tensor" do
+      it "raises an error" do
+        expect { described_class.shape_of "Hello!"}.to raise_error(ArgumentError)
+      end
+    end
   end
 
   describe ".count_items_in_shape" do
