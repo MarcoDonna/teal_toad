@@ -47,5 +47,11 @@ module TealToad
       @shape = shape
       @items = items
     end
+
+    def ==(other)
+      return false unless other.is_a? Tensor
+
+      other.shape == shape && other.items == items
+    end
   end
 end
